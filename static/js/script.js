@@ -166,3 +166,21 @@ window.addEventListener("load", function () {
     pageLoading.style.opacity = "0";
   }, 100);
 });
+
+// 添加防抖处理
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// 对滚动事件进行防抖处理
+const scrollHandler = debounce(() => {
+  // 原有的滚动处理代码
+}, 150);

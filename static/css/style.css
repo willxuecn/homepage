@@ -807,3 +807,16 @@ footer {
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 50%;
 }
+
+img,
+svg {
+  loading: lazy; /* 添加图片懒加载 */
+}
+
+/* 对大型背景图片使用渐进式加载 */
+.bg-image {
+  background-image: none; /* 低分辨率占位图 */
+  @media (min-width: 768px) {
+    background-image: url(...); /* 高分辨率图片 */
+  }
+}
